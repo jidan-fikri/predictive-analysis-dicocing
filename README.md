@@ -224,18 +224,9 @@ Berikut ini merupakan tabel perbandingan antara ketiga algoritma tersebut:
 
 | Model | Deskripsi singkat | Kelebihan | Kekurangan |
 | --- | --- | --- | --- |
-| Logistic Regression | Merupakan model linier yang digunakan untuk klasifikasi. algoritma ini memprediksi probabilitas dengan fungsi sigmoid | - Mudah diimplementasikan
-- Ringan dan efisien secara komputasi
-- Bekerja sangat baik pada data linear | - Sensitif terhadap outlier
-- Kurang cocok pada dataset dengan pola non-linear |
-| K Neighbors Classifier | Merupakan algoritma pembelajaran berbasis *instance* yang mengklasifikasikan berdasarkan kelas mayoritas tetangga terdekatnya (*neighbors*) | - Fleksibel dapat bekerja baik pada model linear ataupun non-linear
-- Sederhana untuk diimplementasikan | - Membutuhkan sumber daya yang besar untuk mengolah dataset yang lebih besar
-- Sensitif terhadap pemilihan parameter *k
--* Sulit menangani *imbalance* dan data berdimensi tinggi |
-| Random Forest | Metode yang menggunakan banyak *decision tree* dan menggabungkannya ntuk membuat prediksi yang akurat dan stabil. | - Lebih tahan terhadap *noise* ataupun *outlier
--* Mampu menangkap hubungan non-linear dengan baik
-- Fleksibel dapat digunakan untuk tugas regresi ataupun klasifikasi | - Membutuhkan sumber daya yang besar karna memerlukan konstruksi dari banyak “pohon”
-- Dapat overfit jika parameter model tidak diatur dengan baik |
+| Logistic Regression | Merupakan model linier yang digunakan untuk klasifikasi. algoritma ini memprediksi probabilitas dengan fungsi sigmoid | Mudah diimplementasikan, ringan dan efisien secara komputasi, bekerja sangat baik pada data linear | Sensitif terhadap outlier, kurang cocok pada dataset dengan pola non-linear |
+| K Neighbors Classifier | Merupakan algoritma pembelajaran berbasis *instance* yang mengklasifikasikan berdasarkan kelas mayoritas tetangga terdekatnya (*neighbors*) | Fleksibel dapat bekerja baik pada model linear ataupun non-linear, sederhana untuk diimplementasikan | - Membutuhkan sumber daya yang besar untuk mengolah dataset yang lebih besar, sensitif terhadap pemilihan parameter *k*, sulit menangani *imbalance* dan data berdimensi tinggi |
+| Random Forest | Metode yang menggunakan banyak *decision tree* dan menggabungkannya ntuk membuat prediksi yang akurat dan stabil. | - Lebih tahan terhadap *noise* ataupun *outlier*, mampu menangkap hubungan non-linear dengan baik, fleksibel dapat digunakan untuk tugas regresi ataupun klasifikasi | Membutuhkan sumber daya yang besar karna memerlukan konstruksi dari banyak “pohon”, dapat overfit jika parameter model tidak diatur dengan baik |
 
 Berdasarkan hasil jalannya proses pelatihan, berikut ini merupakan perbandingan akurasi serta pemilihan hyperparameter terbaik dari ketiga model algoritma yang digunakan:
 
