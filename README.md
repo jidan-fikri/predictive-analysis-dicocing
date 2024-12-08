@@ -24,28 +24,31 @@ Smith, J. W., Everhart, J. E., Dickson, W. C., Knowler, W. C., & Johannes, R. S.
 
 ## Problem Statement
 
-1. Apa saja persiapan yang perlu dilakukan pada data sebelum dapat digunakan untuk pelatihan model machine learning?
-2. Bagaimana proses evaluasi model machine learning dilakukan sampai pada akhirnya menemukan performa model yang optimal untuk memprediksi seseorang terkena penyakit diabetes?
+1. Bagaimana kita dapat memprediksi seseorang memiliki diabetes atau tidak dengan menggunakan algoritma model *Machine Learning*?
+2. Seberapa besar tingkat keandalan (*reliability*) sebuah model sehingga seorang profesional di bidang kesehatan seperti dokter ataupun perawat dapat menggunakan model ini untuk membantu mempermudah proses diagnosa pasien? 
 
 ## Goals
 
-1. Melakukan preparasi data seperti membersihkan data dari bagian yang kosong, pemerataan distribusi, hingga melakukan analisis mendalam terkait korelasi dari setiap variabel independen terhadap variabel dependen atau variabel target (outcome) sehingga dihasilkan model yang relevan dan akurat.
-2. Menggunakan 4 jenis nilai kebenaran diantaranya, Truth Positive (TP), Truth Negative (TN), False Positive (FP), dan False Negative (FN) untuk kemudian membandingkan nilai akurasi, precision, recall, dan f1 score dari algoritma model yang digunakan. 
+1. Memaksimalkan hubungan antara variabel - variabel fitur pasien seperti umur, angka kehamilan, tekanan darah, insulin, hingga indeks masa tubuh dengan variabel target untuk kemudian dilatih sehingga dihasilkan model yang dapat secara otomatis memprediksi apakah seseorang terdiagnosa diabetes atau tidak berdasarkan pola dari masing - masing fitur dari variabel tersebut.
+2. Memiliki akurasi testing setidaknya 70% untuk mengurangi kesalahan dan meningkatkan keandalan serta konsistensi model machine learning ketika digunakan pada data sebenarnya.
 
 ## Solution Statements
 
 Berdasarkan problem statement di atas, maka disimpulkan solusi yang dapat dilakukan untuk mencapai tujuan dari proyek ini, diantaranya yaitu: 
 
-1. Tahapan preparasi data dilakukan dengan menerapkan beberapa metode, diantaranya:
-    1. Membagi dataset menjadi data latih dan data testing dengan perbandingan 70:30 atau 70% data latih dan 30% data testing. 
-    2. Mengatasi data kosong dengan melakukan imputasi menggunakan median dari variabel target.
-    3. Mengatasi distribusi dari data pada tiap variabel yang tidak simetris dengan menggunakan fungsi natural logaritmik ($ln$). 
-    4. Melakukan standarisasi data pada dataset untuk memudahkan model machine learning dalam mengolah dan memahami fitur pada dataset yang digunakan.
-    5. Mengatasi imbalance antara label 0 (pasien dengan diagnosa tidak mengalami diabetes) dengan label 1(pasien dengan diagnosa mengalami diabetes) dengan melakukan transformasi data latih menggunakan ***Synthetic Minority Oversampling Technique*** (SMOTE).
-2. Case pada proyek ini merupakan binary classification dimana output dari model ini nantinya hanya dua, yaitu label 0 (pasien dengan diagnosa tidak mengalami diabetes) dengan label 1(pasien dengan diagnosa mengalami diabetes). Untuk mencari model terbaik, dilakukan perbandingan berdasarkan akurasi yang dihasilkan dari beberapa model tersebut. Untuk case pada proyek ini, ditetapkan restriksi yaitu hanya menggunakan 3 jenis model yang umumnya digunakan pada data dengan jenis binary classification ini, adapun algoritma yang digunakan adalah sebagai berikut:
-    1. Logistic Regression
-    2. K Neighbors Classification
-    3. Random Forest
+1. Melakukan tahapan preparasi data untuk membuat model dapat secara maksimal mendapatkan *insight* dari setiap fitur yang ada. Tahapan ini dilakukan dengan menerapkan beberapa metode, diantaranya:
+   - Membagi dataset menjadi data latih dan data testing dengan perbandingan 70:30 atau 70% data latih dan 30% data testing. 
+   - Mengatasi data kosong dengan melakukan imputasi menggunakan median dari variabel target.
+   - Mengatasi distribusi dari data pada tiap variabel yang tidak simetris dengan menggunakan fungsi natural logaritmik ($ln$). 
+   - Melakukan standarisasi data pada dataset untuk memudahkan model machine learning dalam mengolah dan memahami fitur pada dataset yang digunakan.
+   - Mengatasi imbalance antara label 0 (pasien dengan diagnosa tidak mengalami diabetes) dengan label 1(pasien dengan diagnosa mengalami diabetes) dengan melakukan transformasi data latih menggunakan ***Synthetic Minority Oversampling Technique*** (SMOTE).
+     
+2. Case pada proyek ini merupakan binary classification dimana output dari model ini nantinya hanya dua, yaitu label 0 (pasien dengan diagnosa tidak mengalami diabetes) dengan label 1(pasien dengan diagnosa mengalami diabetes). Untuk dapat melatih komputer dalam memahami pola keterkaitan antara fitur dalam setiap kolom variabel data dengan variabel target atau label, maka diperlukan algoritma machine learning yang sesuai untuk melakukan hal itu. Untuk case pada proyek ini, ditetapkan restriksi yaitu hanya menggunakan 3 jenis model yang umumnya digunakan pada data dengan jenis binary classification ini, adapun algoritma yang digunakan adalah sebagai berikut:
+   - Logistic Regression
+   - K Neighbors Classification
+   - Random Forest
+
+3. Untuk dapat mengetahui keandalan dan konsistensi performa dari model yang sudah dibuat, maka perlu adanya evaluasi model model dan memilih model terbaik untuk menjalankan tugas tersebut. Untuk evaluasi model sendiri digunakan 4 jenis nilai kebenaran diantaranya, Truth Positive (TP), Truth Negative (TN), False Positive (FP), dan False Negative (FN) untuk kemudian membandingkan nilai akurasi, precision, recall, dan f1 score dari algoritma model yang digunakan.
 
 # Data Understanding
 
@@ -116,7 +119,7 @@ Seperti yang sudah dijelaskan sebelumnya, variabel target dari dataset ini terle
 
 ![image.png](image%201.png)
 
-Seperti yang terlihat pada histogram diatas bahwa dataset yang digunakan mengalami ketidakseimbangan dimana label 0 hampir 2 kali lipat lebih banyak dari label 1. Oleh karena itu untuk mengatasi hal ini, akan dilakukan oversampling dimana pada kasus ini oversampling dilakukan dengan melakukan sampling terhadap kelas minoritas atau yang lebih sedikit. Metode ini dikenal dengan istilah *Synthetic Minority Oversampling Technique *****(SMOTE). 
+Seperti yang terlihat pada histogram diatas bahwa dataset yang digunakan mengalami ketidakseimbangan dimana label 0 hampir 2 kali lipat lebih banyak dari label 1. Oleh karena itu untuk mengatasi hal ini, akan dilakukan oversampling dimana pada kasus ini oversampling dilakukan dengan melakukan sampling terhadap kelas minoritas atau yang lebih sedikit. Metode ini dikenal dengan istilah ***Synthetic Minority Oversampling Technique*** (SMOTE). 
 
 ### Analisa Skewness Distribution
 
@@ -220,6 +223,12 @@ Untuk membatasi lingkup dari proyek ini, maka hanya digunakan 3 jenis model yang
 | K Neighbors Classifier | n_neighbors | 1, 2, 3, 4, 5, 6, 7, … , 47, 48, 49, 50 |
 | Random Forest | n_estimators | 0, 5, 10, 15, 20, … , 190, 195, 200 |
 
+Pada Logistic Regression, parameter nilai konstanta C bertindak sebagai pengontrol regulasi yang berpengaruh dalam keseimbangan model antara *overfitting* dan *underfitting*. Cara kerjanya yaitu dengan menambahkan penalti pada model yang terlalu kompleks. Semakin besar nilai konstanta C yang digunakan, maka regularisasi akan semakin lemah begitu pula sebaliknya. Regularisasi yang lemah pada model kompleks akan berdampak pada model yang berkecendrungan untuk *overfit*, sedangkan regularisasi yang lebih kuat pada model yang lebih sederhana akan berdampak pada model yang berkecendrungan untuk *underfit*
+
+Selain itu pada algoritma K Neighbors Classifier, parameter `n_neighbors` digunakan untuk menentukan jumlah "tetangga" terdekat. Parameter ini digunakan karna cara kerja dari model ini sendiri yang menghitung jarak ke tetangga terdekat dan memutuskan label berdasarkan mayoritas dari label tetangga. Semakin kecil nilai parameter `n_neighbors`, model akan menjadi lebih sensitif terhadap *noise* dan berkecendrungan untuk *overfit* apabila hanya mengandalkan sedikit data poin, sedangkan semakin besar nilai parameter `n_neighbors`, model akan menjadi lebih stabil karna akan mempertimbangkan lebih banyak tetangga, namun akan berkecendrungan untuk *underfit* apabila terlalu besar karna model nantinya akan kesulitan untuk menangkap pola lokal.
+
+Untuk algoritma Random Forest, parameter `n_estimators` digunakan untuk menentukan berapa banyak jumlah *decision tree* dimana setiap "pohon" akan memberikan prediksi dan hasil akhir atau output dari setiap "pohon" tersebut akan ditentukan berdasarkan agregasi atau rata - rata hasil keluaran. Semakin kecil nilai `n_estimators`, memungkinkan model untuk cenderung menjadi *underfit* karena kesulitan untuk menagkap pola yang lebih kompleks akibat dari tidak cukup banyak "pohon" yang digunakan, sedangkan semakin besar nilai `n_estimators` maka proses komputasi akan menjadi semakin kompleks sehingga akan memakan lebih banyak sumber daya dan juga waktu meskipun model akan berkendrungan memiliki nilai akurasi yang lebih besar.
+
 Berikut ini merupakan tabel perbandingan antara ketiga algoritma tersebut:
 
 | Model | Deskripsi singkat | Kelebihan | Kekurangan |
@@ -228,17 +237,7 @@ Berikut ini merupakan tabel perbandingan antara ketiga algoritma tersebut:
 | K Neighbors Classifier | Merupakan algoritma pembelajaran berbasis *instance* yang mengklasifikasikan berdasarkan kelas mayoritas tetangga terdekatnya (*neighbors*) | Fleksibel dapat bekerja baik pada model linear ataupun non-linear, sederhana untuk diimplementasikan | - Membutuhkan sumber daya yang besar untuk mengolah dataset yang lebih besar, sensitif terhadap pemilihan parameter *k*, sulit menangani *imbalance* dan data berdimensi tinggi |
 | Random Forest | Metode yang menggunakan banyak *decision tree* dan menggabungkannya ntuk membuat prediksi yang akurat dan stabil. | - Lebih tahan terhadap *noise* ataupun *outlier*, mampu menangkap hubungan non-linear dengan baik, fleksibel dapat digunakan untuk tugas regresi ataupun klasifikasi | Membutuhkan sumber daya yang besar karna memerlukan konstruksi dari banyak “pohon”, dapat overfit jika parameter model tidak diatur dengan baik |
 
-Berdasarkan hasil jalannya proses pelatihan, berikut ini merupakan perbandingan akurasi serta pemilihan hyperparameter terbaik dari ketiga model algoritma yang digunakan:
 
-| Model | Best parameter | Train acc |
-| --- | --- | --- |
-| Logistic Regression | C = 10 | 78.37% |
-| K Neighbors Classifier | n_neighbors = 1 | 85.54% |
-| Random Forest | n_estimators = 180* | 84.68% |
-
-**ketika dijalankan, parameter n_estimators akan menghasilkan nilai yang berubah - ubah namun secara general akan menghasilkan nilai akurasi yang sama.*
-
-Berdasarkan hasil akurasi pada data latih tersebut, didapatkan informasi bahwa model K Neighbors Classifier memiliki nilai akurasi terbesar, berbeda tipis dengan model Random Forest. Untuk itu pada tahapan evaluasi akan digunakan model K Neighbors Classifier dengan n_neighbors=1 sesuai dari keluaran training tersebut.
 
 # Evaluation
 
@@ -277,8 +276,17 @@ F_{1-score} = \dfrac{2TP}{2TP+FP+FN}
 $$
 
 ### Evaluasi Model
+Berdasarkan hasil jalannya proses pelatihan, berikut ini merupakan perbandingan akurasi serta pemilihan hyperparameter terbaik dari ketiga model algoritma yang digunakan:
 
-Karena pada bagian sebelumnya telah didapatkan hasil akurasi pelatihan terbaik yaitu ada pada model algoritma *K Neighbors Classifier,* berikut ini merupakan hasil pengujian model tersebut menggunakan data uji:
+| Model | Best parameter | Train acc |
+| --- | --- | --- |
+| Logistic Regression | C = 10 | 78.37% |
+| K Neighbors Classifier | n_neighbors = 1 | 85.54% |
+| Random Forest | n_estimators = 180* | 84.68% |
+
+**ketika dijalankan, parameter n_estimators akan menghasilkan nilai yang berubah - ubah namun secara general akan menghasilkan nilai akurasi yang sama.*
+
+Berdasarkan hasil akurasi pada data latih tersebut, didapatkan informasi bahwa model K Neighbors Classifier memiliki nilai akurasi terbesar, berbeda tipis dengan model Random Forest. Untuk itu pada tahapan evaluasi selanjutnya akan digunakan model K Neighbors Classifier dengan n_neighbors=1 sesuai dari keluaran training tersebut. Berikut ini merupakan hasil pengujian model tersebut menggunakan data uji:
 
 |  | Precision | Recall | F1-Score | Accuracy |
 | --- | --- | --- | --- | --- |
@@ -300,7 +308,9 @@ Berikut ini merupakan hasil pengujian dengan menggunakan algoritma model *logist
 
 Meski masih berada diangka ~70% akurasi, penambahan *regularization* pada model *logistic regression* menghasilkan perbaikan model yang sedikit lebih baik terutama pada nilai *precision, recall,* dan *f1-score* pada label 1 yang lebih stabil diatas 60%.
 
-Kesimpulan yang diperoleh dari analisis dan pemodelan *machine learning* pada data [**Pima Indians Diabetes Database](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database/data)** adalah model algoritma *logistic regression* dengan menerapkan *hyperparameter tuning* seperti penambahan *regularization* cukup baik digunakan untuk dapat membantu dokter dalam memberikan diagnosa prediktif terhadap pasien apakah pasien tersebut mengidap diabetes atau tidak. Meski demikian perbaikan kualitas data perlu dilakukan, terutama pada keseimbangan label target antara pasien yang memiliki penyakit diabetes (label 1) dan yang tidak memiliki penyakit diabetes (label 0). Hal ini bisa dilihat pada performa model dalam menebak label 1 yang masih belum optimal jika dibandingkan dengan performa model untuk menebak label 0. 
+Kesimpulan yang diperoleh dari analisis dan pemodelan *machine learning* pada data **[Pima Indians Diabetes Database](https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database/data)** adalah model algoritma *logistic regression* dengan menerapkan *hyperparameter tuning* seperti penambahan *regularization* cukup baik digunakan untuk dapat membantu dokter dalam memberikan diagnosa prediktif terhadap pasien apakah pasien tersebut mengidap diabetes atau tidak dengan akurasi testing melebihi ekspektasi target yaitu diatas 70%. Penggunaan metode - metode pada tahap preparasi data juga dilakukan cukup efektif dalam membantu model mencapai hasil yang optimal dengan menyeimbangkan distribusi dan juga label serta perbaikan data - data yang kosong. Meski demikian perbaikan kualitas data perlu dilakukan, terutama pada keseimbangan label target antara pasien yang memiliki penyakit diabetes (label 1) dan yang tidak memiliki penyakit diabetes (label 0). Hal ini bisa dilihat pada performa model dalam menebak label 1 yang masih belum optimal jika dibandingkan dengan performa model untuk menebak label 0. 
+
+Secara umum, proses pengembangan model prediktif dengan berbagai tahapan dalam preparasi data dan juga pilihan model dan parameter yang digunakan, berdampak besar dalam menghasilkan model machine learning yang dapat digunakan untuk dapat membuat diagnosa awal seseorang apakah terdiagnosa penyakit diabetes ataupun tidak. 
 
 # Reference
 
